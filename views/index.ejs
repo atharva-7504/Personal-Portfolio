@@ -1,0 +1,202 @@
+<%- include("partials/header.ejs") %>
+
+
+  <!-- <h1>Home Page</h1>
+
+  <p>Lorem ipsum dolor sit amet, et proin, justo mus. Porta suspendisse turpis netus sagittis tortor at, vitae aliquet
+    pharetra cras velit, id gravida, neque nulla lorem, posuere hac. Ultricies eget lacus vehicula, in ante aliquam
+    et,facilisis tempor duis orci. Sed molestie sem in duis eu id, nisl id ultricies metus blandit eget praesent, pede
+    tempornullam, vitae arcu tortor suspendisse nibh risus. Nulla id suscipit reiciendis nulla erat. Porta enim aute
+    luctus,ducimus sodales dolor.
+  </p>
+  <p>
+    Quam purus justo enim purus, dolor enim, ut eu lectus nam eget nibh. Ante illum nullam leo, vivamus aliquam massa
+    massainceptos fermentum porttitor, blandit vehicula, lorem in placerat ut aliquam at sociosqu. Vivamus duis
+    ultricies
+    aliquam placerat, tincidunt scelerisque imperdiet, egestas erat vel. Libero rerum. Donec ligula tristique, purus
+    montes,
+    feugiatid nunc in a nec. Duis odio, vitae sed etiam mi massa, laoreet amet purus amet rhoncus, eget sed, arcu
+    urna.
+    Maecenaswisi id, at donec enim. Proin nisl, pulvinar leo suspendisse, cum parturient non, congue leo et ut in,
+    neque ut
+    lacusauctor quam fermentum urna. Metus quis, mauris dictum aptent ultrices nulla viverra ornare, tempor elit enim
+    leo
+    donec,sed sed. Vivamus sapien facilisi, tempor arcu nulla justo sed et, eget suspendisse lacus sed nunc mattis
+    lectus.
+    Metusgravida.</p> -->
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Atharva Khabale | Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e6f0ff, #f5f9ff);
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.12);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #2563eb;
+            min-height: 35px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Typing cursor */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 22px;
+            background-color: #2563eb;
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Hero Section -->
+    <div class="card">
+        <h1>Hi, I’m Atharva Khabale 👋</h1>
+        <h2>
+            <span id="typing"></span><span class="cursor"></span>
+        </h2>
+    </div>
+
+    <!-- About Section -->
+    <div class="card">
+        <p>
+            I am a passionate and curious learner focused on building modern and scalable
+            web applications using the <span class="highlight">MERN Stack</span>.<br>
+            I enjoy writing clean, efficient code and following good coding practices.
+        </p>
+
+        <p>
+            I actively participate in technical events and hands-on learning activities,
+            which helps me grow as a developer. Along with web development, I have good
+            knowledge of <span class="highlight">Python</span> and a strong interest in
+            <span class="highlight">System Design & Software Architecture</span>.
+        </p>
+    </div>
+
+    <!-- What I Do -->
+    <div class="card">
+        <h3>What I Do</h3>
+        <ul>
+            <li >🚀 Build full-stack web applications using MERN</li>
+            <li>💯 Write clean, maintainable, and scalable code</li>
+            <li>✅ Improve problem-solving using Python</li>
+            <li>💻 Learn system design and architectural patterns</li>
+        </ul>
+    </div>
+
+    <!-- Goal -->
+    <div class="card">
+        <h3>My Goal</h3>
+        <p>
+            To grow as a skilled <span class="highlight">Software Engineer</span>,
+            master modern technologies, and build efficient systems that solve real-world problems.
+        </p>
+    </div>
+</div>
+
+<script>
+    const texts = [
+        "Aspiring Software Engineer",
+        "MERN Stack Developer"
+    ];
+
+    let index = 0;
+    let charIndex = 0;
+    let currentText = "";
+    let isDeleting = false;
+
+    const typingElement = document.getElementById("typing");
+
+    function typeEffect() {
+        if (!isDeleting && charIndex <= texts[index].length) {
+            currentText = texts[index].substring(0, charIndex++);
+        } else if (isDeleting && charIndex >= 0) {
+            currentText = texts[index].substring(0, charIndex--);
+        }
+
+        typingElement.textContent = currentText;
+
+        if (charIndex === texts[index].length) {
+            isDeleting = true;
+            setTimeout(() => {}, 1000);
+        }
+
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            index = (index + 1) % texts.length;
+        }
+
+        setTimeout(typeEffect, isDeleting ? 80 : 120);
+    }
+
+    typeEffect();
+</script>
+
+</body>
+</html>
+
+
+  <%- include("partials/footer.ejs") %>
